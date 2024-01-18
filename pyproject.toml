@@ -4,7 +4,11 @@ build-backend = "hatchling.build"
 
 [project]
 name = "wintersession2024cicd"
-version = "0.0.1"
+version = "0.0.0"
+description = "Example Python package"
+readme = {file = "README.md", content-type = "text/markdown"}
+license = {file = "LICENSE"}
+requires-python = ">=3.8"
 dependencies = [
     "numpy",
 ]
