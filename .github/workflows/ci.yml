@@ -1,0 +1,48 @@
+name: Our CI
+
+on:
+    pull_request:
+    push:
+        branches:
+            - main
+            - other_branch
+    workflow_dispatch:
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-python@v4
+              with:
+                python-version:  "3.11"
+            - name: Install package
+              run: python -m pip install .[test]
+            - name: Test package
+              run: python -m pytest
+
+    matrix-test:
+      strategy:
+        matrix:
+          os: [ubuntu-latest, windows-latest]
+          python-version: ["3.9", "3.11"]
+          include:
+            - os: macos-latest
+              python-version: "3.10"
+      runs-on: ${{ matrix.os }}
+      steps:
+        - uses: actions/checkout@v4
+        - uses: actions/setup-python@v4
+          with:
+            python-version: ${{ matrix.python-version }}
+        - name: Install package
+          run: python -m pip install .[test]
+        - name: Test package
+          run: python -m pytest -v
+        - name: Example if statement
+          if: runner.os == 'Linux'
+          run: echo "This step runs only on Linux"
+
+      
+
+              
