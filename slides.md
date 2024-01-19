@@ -289,7 +289,6 @@ Create a new workflow that generates these slides and publishes them to GitHub p
 - `actions/checkout`
 - `actions/setup-python`
 - `markdown-slides` from https://gitlab.com/da_doomer/markdown-slides
-- `actions/configure-pages`
 - `actions/upload-pages-artifact`
 - `actions/deploy-pages`
 - Repo > Settings > Pages > Source > GitHub Actions
@@ -338,18 +337,6 @@ Generate the slides.
 ```yaml
 - name: Generate slides
   run: mdslides slides.md --output_dir slides
-```
-
-[comment]: # (||| data-auto-animate)
-
-### Exercise 2
-
-Configure pages
-
-```yaml
-- name: Configure pages
-  id: config-pages
-    uses: actions/configure-pages@v4
 ```
 
 [comment]: # (||| data-auto-animate)
