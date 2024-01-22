@@ -1,7 +1,7 @@
 name: Our CD
 
 on:
-  relese:
+  release:
     types:
       - published
 
