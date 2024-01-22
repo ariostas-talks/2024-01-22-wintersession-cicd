@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "wintersession2024cicd"
-version = "0.0.0"
+version = "0.0.1"
 description = "Example Python package"
 readme = {file = "README.md", content-type = "text/markdown"}
 license = {file = "LICENSE"}
