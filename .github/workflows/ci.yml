@@ -39,3 +39,10 @@ jobs:
         run: python -m pip install .[test]
       - name: Run tests
         run: python -m pytest
+      - name: Example step that runs on Linux
+        if: runner.os == 'Linux'
+        run: echo "This is Linux"
+      - name: This step generates output
+        id: step-with-output
+        run: echo "some-variable=something" >> $GITHUB_OUTPUT
+      - run: echo "${{ steps.step-with-output.some-variable }}"
