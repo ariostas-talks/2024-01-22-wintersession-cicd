@@ -108,16 +108,16 @@ We first need to briefly discuss exit codes and YAML.
 
 ```bash [1-3|4-7|8-12]
 > mkdir test
-> echo $0
+> echo $?
 0
 > mkdir test
 mkdir: test: File exists
-> echo $0
+> echo $?
 1
 > mkdir -z test
 mkdir: illegal option -- z
 usage: mkdir [-pv] [-m mode] directory_name ...
-> echo $0
+> echo $?
 64
 ```
 
@@ -192,7 +192,9 @@ Defining dictionaries:
 person:
   name: John Smith
   age: 33
-  job: accountant
+  occupation: accountant
+
+same_person: {name: John Smith, age: 33, occupation: accountant}
 ```
 
 [comment]: # (||| data-auto-animate)
@@ -260,7 +262,7 @@ jobs:
 
 [comment]: # (!!! data-auto-animate)
 
-### CI Live Demo
+### CI hands-on workshop
 
 Go to the following link:
 
@@ -274,11 +276,12 @@ Modify something in the workflow. Can be anything you want! Here are some ideas:
 - Modify the Python code so that the tests fail.
 - Add a new step that runs some Python code.
 - Add a step that produces an output and print it from another step.
+- Add a step with a command that fails, but the workflow ignores it and proceeds.
 - Add a new job that fails.
 
 [comment]: # (!!! data-auto-animate)
 
-### CD Live Demo
+### CD hands-on workshop
 
 [comment]: # (!!! data-auto-animate)
 
