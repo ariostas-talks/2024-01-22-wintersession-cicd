@@ -1,0 +1,34 @@
+name: Our CD
+
+on:
+  relese:
+    types:
+      - published
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout
+      - name: Build package
+        run: pipx run build
+      - uses: actions/upload-artifact@v3
+        with:
+          path: dist/*
+
+  publish:
+    needs: [build]
+    runs-on: ubuntu-latest
+    environment:
+      name: testpypi
+      url: https://test.pypi.org/p/wintersession2024cicd
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: artifact
+          path: dist
+      - uses: pypa/gh-actions-pypi-publish@release/v1
+        with:
+            repository-url: https:test.pypi.org/legacy/
