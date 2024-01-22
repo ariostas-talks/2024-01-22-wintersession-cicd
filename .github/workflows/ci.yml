@@ -1,0 +1,15 @@
+name: Our CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - other-branch
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "hello world"
