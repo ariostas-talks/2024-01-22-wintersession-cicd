@@ -266,7 +266,7 @@ jobs:
 
 Go to the following link:
 
-https://github.com/ariostas/wintersession2024-cicd
+https://github.com/ariostas-talks/2024-01-22-wintersession-cicd
 
 [comment]: # (!!! data-auto-animate)
 
